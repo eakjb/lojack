@@ -34,6 +34,7 @@ var tasks = [
         run: function (env) {
             domains.forEach(function(domain) {
                 dns.resolveTxt(domain, function(err,results) {
+                    if (results)
                     walkArray(results, 'string', function(result) {
                         if (apiBases.indexOf(result) < 0) {
                             apiBases.push(result);
